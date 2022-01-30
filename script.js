@@ -17,7 +17,6 @@ function noScroll(e) {
   if (e.touches.length === 1) e.preventDefault();
 }
 
-console.log(document.documentElement.scrollTop);
 let s = Math.min(window.innerHeight, window.innerWidth);
 if (s === window.innerHeight) {
   document.getElementById('a').style.display = 'flex';
@@ -28,7 +27,6 @@ if (s === window.innerHeight) {
   s = (s * 4) / 5;
 }
 let canvas = document.getElementById('canvas');
-canvas.addEventListener('touchmove', noScroll, { passive: false });
 let colorCanvas = document.getElementById('colors');
 let colorsctx = colorCanvas.getContext('2d');
 canvas.width = s;
@@ -248,7 +246,7 @@ class dotCanvas {
 }
 document.getElementById('setSize').addEventListener('click', () => {
   if (isNaN(document.getElementById('size').value)) return;
-
+  canvas.addEventListener('touchmove', noScroll, { passive: false });
   var c = new dotCanvas(canvas, document.getElementById('size').value - 0);
   c.drowGrid();
   document.getElementById('setSize').remove();
