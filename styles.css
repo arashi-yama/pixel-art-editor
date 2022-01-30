@@ -14,3 +14,10 @@
 textarea{
   width: 100%;
 }
+#size{
+  width:50%;
+  height:50px;
+}
+#setSize{
+  height:50px;
+}
