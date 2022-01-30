@@ -315,6 +315,9 @@ document.getElementById('setSize').addEventListener('click', () => {
   document.getElementById('bgc').addEventListener('mousemove', () => {
     c.setBackGroundColor = 255 - document.getElementById('bgc').value;
   });
+  document.getElementById('bgc').addEventListener('touchmove', () => {
+    c.setBackGroundColor = 255 - document.getElementById('bgc').value;
+  });
   window.addEventListener('keydown', (e) => {
     if (e.key === 'd') c.color++;
     if (e.key === 'a') c.color--;
