@@ -17,7 +17,6 @@ function noScroll(e) {
   if (e.touches.length === 1) e.preventDefault();
 }
 
-document.addEventListener('touchmove', noScroll, { passive: false });
 console.log(document.documentElement.scrollTop);
 let s = Math.min(window.innerHeight, window.innerWidth);
 if (s === window.innerHeight) {
@@ -29,6 +28,7 @@ if (s === window.innerHeight) {
   s = (s * 4) / 5;
 }
 let canvas = document.getElementById('canvas');
+canvas.addEventListener('touchmove', noScroll, { passive: false });
 let colorCanvas = document.getElementById('colors');
 let colorsctx = colorCanvas.getContext('2d');
 canvas.width = s;
