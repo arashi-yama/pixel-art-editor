@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <input id="size" value="ここに解像度を入力" />
+    <input id="setSize" value="send" type="submit" />
+    <div id="a">
+      <div class="f">
+        <table id="canvases">
+          <tr>
+            <td><canvas id="canvas"></canvas></td>
+          </tr>
+          <tr>
+            <td><canvas id="colors" height="50px"></canvas></td>
+          </tr>
+          <tr>
+            <td><input type="submit" id="left" value="←"><input type="submit" id="right" value="→"><input type="submit" value="glid" id="grid"></td>
+          </tr>
+          <tr>
+            <td>
+              <input id="color" />
+              <input type="submit" value="addColor" id="colorSubmit"/>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="range" value="0" id="bgc" min="0" max="255" /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="f">
+        <table border="1" id="ct">
+          <tr>
+            <td id="s">
+              <textarea id="ex" cols="30" rows="5">export</textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="export" id="export" />
+            </td>
+          </tr>
+          <tr>
+            <td id="i">
+              <textarea id="in" cols="30" rows="5">import</textarea>
+              <input type="submit" value="import" id="import" />
+            </td>
+          </tr>
+        </table>
+        <canvas id="test" width="300px" height="300px"></canvas>
+        <canvas id="testest" width="300px" height="300px"></canvas>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
