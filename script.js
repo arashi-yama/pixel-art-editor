@@ -137,7 +137,6 @@ class dotCanvas {
     this.ctx.fillRect(0, 0, this.canvas.height, this.canvas.width);
     this.drowAllPixcel();
   }
-
   toReadOnly() {
     this.canvas.removeEventListener('mousemove', this.canvasMousemoveEvent);
     this.canvas.removeEventListener('touchmove', this.canvasTouchmoveEvent);
@@ -245,7 +244,11 @@ class dotCanvas {
   }
 }
 document.getElementById('setSize').addEventListener('click', () => {
-  if (isNaN(document.getElementById('size').value)) return;
+  let num = Number(document.getElementById('size').value);
+  if (isNaN(num) || num <= 0 || !Number.isInteger(num)) {
+    alert('解像度は0以上の整数で入力してください');
+    return;
+  }
   canvas.addEventListener('touchmove', noScroll, { passive: false });
   var c = new dotCanvas(canvas, document.getElementById('size').value - 0);
   c.drowGrid();
@@ -399,4 +402,3 @@ tc.addEventListener('mousemove', (e) => {
     3
   );
 });
-console.log(Number.isNaN(true));
