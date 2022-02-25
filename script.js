@@ -251,6 +251,7 @@ class dotCanvas {
    */
   import(data, offsetX = 0, offsetY = 0, pixcelSize) {
     let d = JSON.parse(data);
+    console.log(d)
     if (
       d.display
         .map((a) => a.length)
