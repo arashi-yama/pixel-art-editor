@@ -199,12 +199,49 @@ class dotCanvas {
       this.pixcel
     );
   }
-  export() {
-    return JSON.stringify({
+  /**
+   * @param {object} option
+   * compression(boolean):圧縮して出力するか
+   * json(boolean):jsonで出力するか
+   */
+  export(option) {
+    if (option?.compression) {
+      let usedcolor = [];
+      for (let color of this.display.flat()) {
+        if (!usedcolor.includes(color)) {
+          usedcolor.push(color);
+        }
+      }
+      let colors = usedcolor.map((v) => this.colors[v]);
+      let links = colors.map((v) => this.colors.indexOf(v));
+      links.forEach((v, i, a) => {
+        a[v] = i;
+      });
+      let dis = this.display.map((line) => {
+        return line.map((v) => links[v]);
+      });
+      let obj = {
+        size: this.size,
+        colors: colors,
+        display: dis,
+      };
+      if (option?.json) {
+        return JSON.stringify(obj);
+      }
+      return obj;
+    }
+    if (option?.json) {
+      return JSON.stringify({
+        size: this.size,
+        colors: this.colors,
+        display: this.display,
+      });
+    }
+    return {
       size: this.size,
       colors: this.colors,
       display: this.display,
-    });
+    };
   }
   /**
    * @param {string} data dotCanvasクラスでexportされたJSON文字列
@@ -336,7 +373,7 @@ document.getElementById('setSize').addEventListener('click', () => {
       );
   });
   document.getElementById('export').addEventListener('click', () => {
-    let data = c.export();
+    let data = c.export({ json: true, compression: true });
     document.getElementById('ex').value = data;
   });
   document.getElementById('import').addEventListener('click', () => {
