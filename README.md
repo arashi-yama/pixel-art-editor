@@ -1,3 +1,2 @@
-# web-platform-k5zqgx
-
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/web-platform-k5zqgx)
+# this page is pablished here
+https://jinjanow.github.io/dotcanvasmaker/
